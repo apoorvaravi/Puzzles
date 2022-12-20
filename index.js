@@ -2,21 +2,36 @@
 import './style.css';
 
 // Write Javascript code!
-const maximumWaterEle = document.getElementById('maximumWater');
-maximumWaterEle.innerHTML = `<h1>MaximumWater</h1>`;
-maximumWaterEle.onclick = () =>
-  (maximumWaterEle.innerHTML = maximumWater([7, 1, 2, 3, 9]));
+const element = document.getElementById('trappingRainwater');
+element.innerHTML = `<h1>TrappingRainwater</h1>`;
+element.onclick = () =>
+  (element.innerHTML = trappingRainWater([0, 1, 0, 2, 1, 0, 3, 1, 0, 1, 2]));
 
 // Two pointer techinques
-const maximumWater = function (array) {
-  let maxArea = 0;
+const trappingRainWater = function (array) {
+  let total = 0;
+  let maxLeft = 0,
+    maxRight = 0,
+    leftp = 0,
+    rightp = 0;
   for (let i = 0; i < array.length; i++) {
-    const lastIndex = array.length - 1;
-    const value = array[lastIndex];
-    const area = Math.min(array[i], value) * (lastIndex - i);
-    maxArea = Math.max(maxArea, area);
+    leftp = i;
+    rightp = i;
+    while (leftp <= 0) {
+      maxLeft = Math.max(maxLeft, array[leftp]);
+      leftp--;
+    }
+    while (rightp > array.length) {
+      maxRight = Math.max(maxRight, array[rightp]);
+      rightp++;
+    }
+    console.log({ maxLeft, maxRight });
+    const cw = Math.min(maxLeft, maxRight) - array[i];
+    if(cw >= 0) {
+      total+=cw;
+    }
   }
-  return maxArea;
+  return total;
 };
 
 // const maximumWater = function (array) {
