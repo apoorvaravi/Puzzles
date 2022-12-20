@@ -1,3 +1,13 @@
-h1, h2 {
-  font-family: Lato;
+h1,
+h2 {
+  font-family: 'Courier New', Courier, monospace;
+  color: brown;
+}
+
+ol {
+  list-style-type: none;
+}
+
+.container {
+  box-shadow: 5px 5px 5px grey;
 }
