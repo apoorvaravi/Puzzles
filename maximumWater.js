@@ -5,9 +5,9 @@ import './style.css';
 const maximumWaterEle = document.getElementById('maximumWater');
 maximumWaterEle.innerHTML = `<h1>MaximumWater</h1>`;
 maximumWaterEle.onclick = () =>
-  (maximumWaterEle.innerHTML = maximumWater([7, 1, 2, 3, 9]));
+  (maximumWaterEle.innerHTML = maximumWater([7, 1, 2, 3, 9, 8]));
 
-// Two pointer techinques
+// Two pointer techinques = a = l*b
 const maximumWater = function (array) {
   let maxArea = 0;
   for (let i = 0; i < array.length; i++) {
