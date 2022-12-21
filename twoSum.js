@@ -19,19 +19,13 @@ const twosum = function (array, target) {
   }
 
   // Brute
-  // const twosum = function (array, target) {
-  // for (let i = 0; i < array.length; i++) {
-  //   for (let j = i + 1; j < array.length; j++) {
-  //     if (array[i] + array[j] == target) {
-  //       return [array[i], array[j]];
-  //     }
-  //   }
-  // }
-  // }
-
-  // const sum = array.reduce((total, amount) => {
-  //   console.log(total  + "::" +  amount);
-  //   return total + amount;
-  // }, 0);
-  // return sum;
+  const twosumBrute = function (array, target) {
+    for (let i = 0; i < array.length; i++) {
+      for (let j = i + 1; j < array.length; j++) {
+        if (array[i] + array[j] == target) {
+          return [array[i], array[j]];
+        }
+      }
+    }
+  };
 };

@@ -19,13 +19,13 @@ const maximumWater = function (array) {
   return maxArea;
 };
 
-// const maximumWater = function (array) {
-//   let maxArea = 0;
-//   for (let i = 0; i < array.length; i++) {
-//     for (let j = i + 1; j < array.length; j++) {
-//       const area = Math.min(array[i], array[j]) * (j - i);
-//       maxArea = Math.max(maxArea, area);
-//     }
-//   }
-//   return maxArea;
-// };
+const maximumWaterBrute = function (array) {
+  let maxArea = 0;
+  for (let i = 0; i < array.length; i++) {
+    for (let j = i + 1; j < array.length; j++) {
+      const area = Math.min(array[i], array[j]) * (j - i);
+      maxArea = Math.max(maxArea, area);
+    }
+  }
+  return maxArea;
+};

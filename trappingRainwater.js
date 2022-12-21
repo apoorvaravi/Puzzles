@@ -36,23 +36,22 @@ const trappingRainWater = function (heights) {
   return total;
 };
 
-// one pointer brute force approach
-// const trappingRainWater = function (heights) {
-//   let totalWater = 0;
+const trappingRainWaterBrute = function (heights) {
+  let totalWater = 0;
 
-//   for (let p = 0; p < heights.length; p++) {
-//     let leftP = p,
-//       rightP = p,
-//       maxLeft = 0,
-//       maxRight = 0;
+  for (let p = 0; p < heights.length; p++) {
+    let leftP = p,
+      rightP = p,
+      maxLeft = 0,
+      maxRight = 0;
 
-//     maxLeft = Math.max(...heights.slice(0, p));
-//     maxRight = Math.max(...heights.slice(p, heights.length));
-//     const currentWater = Math.min(maxLeft, maxRight) - heights[p];
-//     if (currentWater >= 0) {
-//       totalWater += currentWater;
-//     }
-//   }
+    maxLeft = Math.max(...heights.slice(0, p));
+    maxRight = Math.max(...heights.slice(p, heights.length));
+    const currentWater = Math.min(maxLeft, maxRight) - heights[p];
+    if (currentWater >= 0) {
+      totalWater += currentWater;
+    }
+  }
 
-//   return totalWater;
-// };
+  return totalWater;
+};
