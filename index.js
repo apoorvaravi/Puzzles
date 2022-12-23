@@ -8,40 +8,42 @@ element.onclick = () =>
   (element.innerHTML = backspaceString('abc#z', 'abzz##z'));
 
 const backspaceString = function (s, t) {
-  let p = s.length - 1, q = t.length - 1;
-  let res = false;
-  let bsp = 0, tsp = 0;
+     let p = s.length - 1,
+    q = t.length - 1;
 
   while (p >= 0 || q >= 0) {
-    if (s[p] !== '#' && t[q] !== '#') {
-      if (s[p] === t[q]) {
-        res = true;
-        p--;
-        q--;
-      } else {
-        return false;
-      }
-    } else {
+    if (s[p] === '#' || t[q] === '#') {
       if (s[p] === '#') {
-        let temp = p;
-        while (s[temp] === '#' && temp >= 0) {
-          bsp = bsp + 2;
-          temp--;
+        let bsp = 2;
+        while (bsp > 0) {
+          p--;          
+          bsp--;
+          if (s[p] === '#') {
+            bsp += 2;
+          }
         }
-        p = p - bsp;
       }
 
       if (t[q] === '#') {
-        let temp = q;
-        while (t[temp] === '#' && temp >= 0) {
-          tsp = tsp + 2;
-          temp--;
+        let tsp = 2;
+        while (tsp > 0) {
+          q--;        
+          tsp--;
+          if (t[q] === '#') {
+            tsp += 2;
+          }
         }
-        q = q - tsp;
+      }
+    } else {
+      if (s[p] !== t[q]) {
+        return false;
+      } else {
+        p--;
+        q--;
       }
     }
   }
-  return res;
+  return true;
 };
 
 // const backspaceStringBrute = function (...args) {
