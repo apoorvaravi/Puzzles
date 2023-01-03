@@ -7,7 +7,7 @@ element.innerHTML = `<h1>LongestSubstring</h1>`;
 element.onclick = () => (element.innerHTML = longestSubstring('au'));
 
 const longestSubstring = function (s) {
-  if(s.length <= 1) {
+  if (s.length <= 1) {
     return s.length;
   }
   let left = 0;
@@ -25,7 +25,7 @@ const longestSubstring = function (s) {
       right = left;
       hashmap = {};
     }
-    longest = Math.max(right-left, longest);
+    longest = Math.max(right - left, longest);
   }
   return longest;
 };

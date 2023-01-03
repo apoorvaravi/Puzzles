@@ -8,7 +8,7 @@ element.onclick = () =>
   (element.innerHTML = backspaceString('abc#z', 'abzz##z'));
 
 const backspaceString = function (s, t) {
-     let p = s.length - 1,
+  let p = s.length - 1,
     q = t.length - 1;
 
   while (p >= 0 || q >= 0) {
@@ -16,7 +16,7 @@ const backspaceString = function (s, t) {
       if (s[p] === '#') {
         let bsp = 2;
         while (bsp > 0) {
-          p--;          
+          p--;
           bsp--;
           if (s[p] === '#') {
             bsp += 2;
@@ -27,7 +27,7 @@ const backspaceString = function (s, t) {
       if (t[q] === '#') {
         let tsp = 2;
         while (tsp > 0) {
-          q--;        
+          q--;
           tsp--;
           if (t[q] === '#') {
             tsp += 2;
