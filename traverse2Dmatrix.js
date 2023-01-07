@@ -12,8 +12,7 @@ element.onclick = () =>
     [16, 17, 18, 19, 20],
   ]));
 
-var traverse2Dmatrix = function (matrix) { 
-
+var traverse2Dmatrix = function (matrix) {
   const directions = [
     [-1, 0], //up
     [0, 1], //right
@@ -38,20 +37,29 @@ var traverse2Dmatrix = function (matrix) {
       row >= matrix.length ||
       col >= matrix[0].length ||
       seen[row][col]
-    ) {    
-      console.log("Return from function -row" +row + ":col:" + col);
+    ) {
+      console.log('Return from function -row' + row + ':col:' + col);
       return;
     }
-   
+
     seen[row][col] = true;
     results.push(matrix[row][col]);
-    console.log('first we update the seen [' + row , col + ']');
+    console.log('first we update the seen [' + row, col + ']');
 
     for (let i = 0; i < directions.length; i++) {
       const currentDirection = directions[i];
-      console.log('when recived directions['+currentDirection +']'+ '-i=' + i+ ':row[' + row  , col+ ']' + 'matrix-value-' + matrix[row][col]);
+      console.log(
+        'when recived directions[' +
+          currentDirection +
+          ']' +
+          '-i=' +
+          i +
+          ':row[' +
+          row,
+        col + ']' + 'matrix-value-' + matrix[row][col]
+      );
       let cole = col + currentDirection[1];
-      console.log('call the recursively called col:' + cole );
+      console.log('call the recursively called col:' + cole);
       dfs(row + currentDirection[0], col + currentDirection[1]);
     }
   };
