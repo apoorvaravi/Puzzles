@@ -4,8 +4,7 @@ import './style.css';
 // Write Javascript code!
 const element = document.getElementById('reverseBetweenList');
 element.innerHTML = `<h1>ReverseBetweenList</h1>`;
-element.onclick = () =>
-  (element.innerHTML = reverseBetweenList(linkedlist, 2, 4));
+element.onclick = () => (element.innerHTML = reverseBetweenList(linkedlist));
 
 class Node {
   constructor(v, n = null) {
@@ -19,38 +18,37 @@ var printList = function (head) {
   if (!head) {
     return result;
   }
-  // console.table(head);
+  console.table(head);
   result.push(head.value);
   printList(head.next);
   return result;
 };
 
-const linkedlist = [1, 2, 3, 4, 5].reduce((acc, val) => {
-  return new Node(val, acc);
-}, null);
+const linkedlist = [1, 2, 3, 4, 5].reduce(
+  (acc, val) => new Node(val, acc),
+  null
+);
 
-console.log([5, 4, 3, 2, 1]);
-var reverseBetweenList = function (head, m, n) {
-  let currentPos = 1,
-    currentNode = head;
+var reverseBetweenList = function (head, m = 2, n = 4) {
   let start = head;
+  let currpos = 1;
 
-  while (currentPos < m) {
+  let currentNode = head;
+  let newList = null;
+  let tail = currentNode;
+
+  while (currpos < m) {
     start = currentNode;
-
+    currpos++;
     currentNode = currentNode.next;
-    currentPos++;
   }
 
-  let newList = null,
-    tail = currentNode;
-  console.log(tail);
-  while (currentPos >= m && currentPos <= n) {
+  while (currpos >= m && currpos <= n) {
     const next = currentNode.next;
     currentNode.next = newList;
     newList = currentNode;
     currentNode = next;
-    currentPos++;
+    currpos++;
   }
 
   start.next = newList;
