@@ -6,10 +6,11 @@ const twosumEle = document.getElementById('twoSum');
 twosumEle.innerHTML = `<h1>Two sum</h1>`;
 twosumEle.onclick = () => (twosumEle.innerHTML = twosum([1, 3, 7, 9, 2], 11));
 
+// T: o(n) S: o(n)
 const twosum = function (array, target) {
   let numMap = new Map();
   for (let i = 0; i < array.length; i++) {
-    let ntf = array[i];
+    let ntf = array[i]; 
     if (numMap.has(ntf)) {
       return [numMap.get(ntf), i];
     } else {
