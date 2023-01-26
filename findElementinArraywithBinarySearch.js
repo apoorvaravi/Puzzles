@@ -2,10 +2,10 @@
 import './style.css';
 
 // Write Javascript code!
-const twosumEle = document.getElementById('findElementinArraywithBinarySearch');
-twosumEle.innerHTML = `<h1>Find Element in Array with BinarySearch</h1>`;
-twosumEle.onclick = () =>
-  (twosumEle.innerHTML = findElementinArraywithBinarySearch(
+const ele = document.getElementById('findElementinArraywithBinarySearch');
+ele.innerHTML = `<h1>Find Element in Array with BinarySearch</h1>`;
+ele.onclick = () =>
+  (ele.innerHTML = findElementinArraywithBinarySearch(
     [1, 2, 3, 4, 5, 6],
     6
   ));
