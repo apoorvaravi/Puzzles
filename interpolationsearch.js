@@ -13,7 +13,7 @@ const interpolationSearch = function (array, target) {
 
   let pos = 0;
   let low = 0;
-  let high = array.length - 1;
+  let high = arr.length - 1;
 
   //   formula = low + (target - array[low])/(array[high] - array[low]) * (high - low);
 
@@ -22,7 +22,9 @@ const interpolationSearch = function (array, target) {
       low + ((target - array[low]) / (array[high] - array[low])) * (high - low)
     );
     if (array[pos] === target) {
-      return pos;
+      console.log(pos);
+      return array[pos];
+      
     } else if (array[pos] < target) {
       low = pos + 1;
     } else {
