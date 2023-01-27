@@ -11,10 +11,11 @@ const implementQueueOptimised = function () {
   q.enqueue(1);
   q.enqueue(2);
   q.enqueue(3);
-  console.log(q.peek());
+  q.peek();
+  q.printQueue();
   q.dequeue();
   q.printQueue();
-  return 'Open Console to see the magic';
+  q.isEmpty();
 };
 
 class Queue {
@@ -26,21 +27,21 @@ class Queue {
   }
 
   enqueue(value) {
-    this.items[this.rear] = value;
+    this.items[rear] = value;
     this.rear++;
     this.size++;
   }
 
   dequeue() {
-    const valuetoDelete = this.items[this.front];
-    delete this.items[this.front];
+    const valuetoDelete = this.items[front];
+    delete this.items[front];
     this.front++;
     this.size++;
     return valuetoDelete;
   }
 
   peek() {
-    return this.items[this.front];
+    return this.items[front];
   }
 
   isEmpty() {

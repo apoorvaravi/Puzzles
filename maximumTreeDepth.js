@@ -3,7 +3,7 @@ import './style.css';
 
 // Write Javascript code!
 const element = document.getElementById('maximumTreeDepth');
-element.innerHTML = `<h1>MaximumTreeDepth</h1>`;
+element.innerHTML = `<h1>MaximumBinaryTreeDepth</h1>`;
 element.onclick = () =>
   (element.innerHTML = maximumTreeDepth([3, 9, 20, null, null, 15, 7]));
 
